@@ -6,11 +6,14 @@ const boardingPasses = fs
 
 let seatIDs = [];
 let missingNumbers = [];
+
 function getSeat(seatBSP) {
+  //128 rows in the plain
   const rangeRow = {
     start: 0,
     end: 127,
   };
+  //8 seats per row
   const rangeSeat = {
     start: 0,
     end: 7,
@@ -23,28 +26,24 @@ function getSeat(seatBSP) {
         newRanger % 2 > 0
           ? rangeRow.start + (newRanger - 1) / 2
           : rangeRow.start + newRanger / 2;
-      console.log(rangeRow.end);
     } else if (seatBSP[i] == "B") {
       let newRanger = rangeRow.end - rangeRow.start;
       rangeRow.start =
         newRanger % 2 > 0
           ? (newRanger - 1) / 2 + rangeRow.start + 1
           : newRanger / 2 + rangeRow.start + 1;
-      console.log(rangeRow.start);
     } else if (seatBSP[i] == "L") {
       let newRanger = rangeSeat.end - rangeSeat.start;
       rangeSeat.end =
         newRanger % 2 > 0
           ? rangeSeat.start + (newRanger - 1) / 2
           : rangeSeat.start + newRanger / 2;
-      console.log(rangeSeat.end);
     } else if (seatBSP[i] == "R") {
       let newRanger = rangeSeat.end - rangeSeat.start;
       rangeSeat.start =
         newRanger % 2 > 0
           ? (newRanger - 1) / 2 + rangeSeat.start + 1
           : newRanger / 2 + rangeSeat.start + 1;
-      console.log(rangeSeat.start);
     }
   }
   let row = rangeRow.start == rangeRow.end ? rangeRow.start : "Fehler";
