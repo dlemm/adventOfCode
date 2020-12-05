@@ -1,4 +1,4 @@
 # Advent of Code
 
-See code Challenges here:
+See code challenges here:
 https://adventofcode.com/
