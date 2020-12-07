@@ -46,6 +46,7 @@ function getSeat(seatBSP) {
           : newRanger / 2 + rangeSeat.start + 1;
     }
   }
+
   let row = rangeRow.start == rangeRow.end ? rangeRow.start : "Fehler";
   let seat = rangeSeat.start == rangeSeat.end ? rangeSeat.start : "Fehler";
   let ID = row * 8 + seat;
